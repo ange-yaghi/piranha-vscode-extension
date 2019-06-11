@@ -1,0 +1,163 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MantaRay SDL",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#decorators"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#node_names"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#attributes"
+		},
+		{
+			"include": "#instance_name"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.mantascene",
+				"match": "\\b(if|while|for|return)\\b"
+			},
+			{
+				"name": "storage.modifier",
+				"match": "\\b(default|export|local)\\b"
+			},
+			{
+				"name": "keyword.control.import",
+				"match": "\\bimport\\b"
+			},
+			{
+				"name": "constant.language",
+				"match": "\\b(true|false)\\b"
+			}]
+		},
+		"node_names": {
+			"patterns": [{
+				"name": "entity.name.class",
+				"begin": "\\b(node)(?=(\\s+[a-zA-Z_][a-zA-Z_0-9]*))",
+				"end": "([a-zA-Z_][a-zA-Z_0-9]*)",
+				"beginCaptures": {"1":{"name":"storage.type"}},
+				"endCaptures": {"1":{"name":"entity.name.class"}}
+			},
+			{
+				"name": "entity.name.class",
+				"match": "(?<=\\=\\>)\\s*[a-zA-Z_][a-zA-Z_0-9]*"
+			},
+			{
+				"name": "meta",
+				"begin": "(\\w+\\s+)(?=[a-zA-Z_][a-zA-Z_0-9]*[\\s]*\\()",
+				"end": "\\(",
+				"beginCaptures": 
+				{
+					"1":
+					{
+						"name": "entity.name.class"
+					}
+				},
+				"patterns": [
+					{
+						"match":"[a-zA-Z_][a-zA-Z_0-9]*[\\s]*(?=\\()",
+						"name":"entity.name"
+					}
+				]
+			},
+		{
+			"name": "entity.name.class",
+			"match": "[a-zA-Z_][a-zA-Z_0-9]*(?=\\()"
+		}]
+		},
+		"instance_name": {
+			"patterns": [
+]
+		},
+		"numbers": {
+			"patterns": [
+			{
+				"name": "constant.numeric",
+				"match": "\\b\\d+\\.\\d+\\b"
+			},
+			{
+				"name": "constant.numeric",
+				"match": "\\b(?<!\\.)\\d+\\b"
+			},
+			{
+				"name": "constant.numeric",
+				"match": "\\b0x[0-9a-fA-F]+\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.mantascene",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.mantascene",
+					"match": "\\\\."
+				}
+			]
+		},
+		"attributes": {
+			"patterns": [
+				{
+					"name": "entity.other.attribute-name",
+					"match": "(\\b[a-zA-Z_][a-zA-Z0-9_]*)(?=\\:)"
+				},
+				{
+					"name": "entity.other.attribute-name",
+					"match": "(?<=\\.)[a-zA-Z_][a-zA-Z_0-9]*"
+				},
+				{
+					"name": "meta",
+					"begin": "(input|output)(?=\\s+[a-zA-Z_][a-zA-Z_0-9]*)",
+					"end": "\\s+([a-zA-Z_][a-zA-Z_0-9]*)",
+					"beginCaptures":{
+						"1": {"name":"storage.modifier"}
+					},
+					"endCaptures": {
+						"1": {"name":"entity.other.attribute-name"}
+					}
+				},
+				{
+					"name": "entity.other.attribute-name",
+					"match": "(?<=output )[a-zA-Z_][a-zA-Z_0-9]*"
+				}
+			]
+		},
+		"decorators": {
+			"name": "entity.name.function.decorator",
+			"begin": "@",
+			"end": "(?==)",
+			"patterns": [
+			]
+		},
+		"comments": {   
+			"patterns": [{
+				"name": "comment.line.double-slash",
+				"begin": "//",
+				"end": "\n"
+			},
+			{
+				"name": "comment.block",
+				"begin": "/\\*",
+				"end": "\\*/"
+			}]
+		}
+
+	},
+	"scopeName": "source.mr"
+}
