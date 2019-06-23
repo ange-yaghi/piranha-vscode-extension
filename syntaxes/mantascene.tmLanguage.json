@@ -31,11 +31,11 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.mantascene",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(if|while|for|return|as)\\b"
 			},
 			{
 				"name": "storage.modifier",
-				"match": "\\b(default|public|hidden)\\b"
+				"match": "\\b(default|public|private|node)\\b"
 			},
 			{
 				"name": "keyword.control.import",
