@@ -35,7 +35,7 @@
 			},
 			{
 				"name": "storage.modifier",
-				"match": "\\b(default|export|local)\\b"
+				"match": "\\b(default|public|hidden)\\b"
 			},
 			{
 				"name": "keyword.control.import",
@@ -49,8 +49,8 @@
 		"node_names": {
 			"patterns": [{
 				"name": "entity.name.class",
-				"begin": "\\b(node)(?=(\\s+[a-zA-Z_][a-zA-Z_0-9]*))",
-				"end": "([a-zA-Z_][a-zA-Z_0-9]*)",
+				"begin": "\\b(node)(?=(\\s+[a-zA-Z_][a-zA-Z_0-9]*\\s*[\\+-/\\*]?))",
+				"end": "([a-zA-Z_][a-zA-Z_0-9]*\\s*[\\+-/\\*]?)",
 				"beginCaptures": {"1":{"name":"storage.type"}},
 				"endCaptures": {"1":{"name":"entity.name.class"}}
 			},
@@ -60,7 +60,7 @@
 			},
 			{
 				"name": "meta",
-				"begin": "(\\w+\\s+)(?=[a-zA-Z_][a-zA-Z_0-9]*[\\s]*\\()",
+				"begin": "(\\w+\\s+)(?=[a-zA-Z_][a-zA-Z_0-9]*\\s*[\\+-/\\*]?[\\s]*\\()",
 				"end": "\\(",
 				"beginCaptures": 
 				{
@@ -71,14 +71,14 @@
 				},
 				"patterns": [
 					{
-						"match":"[a-zA-Z_][a-zA-Z_0-9]*[\\s]*(?=\\()",
+						"match":"[a-zA-Z_][a-zA-Z_0-9]*\\s*[\\+-/\\*]?[\\s]*(?=\\()",
 						"name":"entity.name"
 					}
 				]
 			},
 		{
 			"name": "entity.name.class",
-			"match": "[a-zA-Z_][a-zA-Z_0-9]*(?=\\()"
+			"match": "[a-zA-Z_][a-zA-Z_0-9]*\\s*[\\+-/\\*]?(?=\\()"
 		}]
 		},
 		"instance_name": {
