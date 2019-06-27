@@ -35,7 +35,7 @@
 			},
 			{
 				"name": "storage.modifier",
-				"match": "\\b(default|public|private|node)\\b"
+				"match": "\\b(default|public|private|node|module)\\b"
 			},
 			{
 				"name": "keyword.control.import",
@@ -114,8 +114,8 @@
 		"attributes": {
 			"patterns": [
 				{
-					"name": "entity.other.attribute-name",
-					"match": "(\\b[a-zA-Z_][a-zA-Z0-9_]*)(?=\\:(?!\\:))"
+					"name": "entity.name.class",
+					"match": "(\\b[a-zA-Z_][a-zA-Z0-9_]*)(?=\\s+\\{)"
 				},
 				{
 					"name": "entity.other.attribute-name",
