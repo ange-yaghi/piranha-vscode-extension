@@ -58,14 +58,6 @@
 						{ "include": "#attribute_specification" }
 					]
 			},
-			{
-				"name": "entity.meta",
-				"begin": "\\(",
-				"end": "\\)\\s*\\->",
-				"patterns": [
-						{ "include": "#attribute_specification" }
-					]
-			},
 			{ "include": "#global_keywords" }
 		]
 		},
@@ -148,7 +140,8 @@
 					"end": "\\}",
 					"beginCaptures": {
 						"1": { "name": "storage.type" },
-						"2": { "name": "entity.name.class" }
+						"2": { "name": "entity.name.class" },
+						"3": { "name": "storage.modifier" }
 					},
 					"patterns": [
 						{ "include": "#attributes" },
