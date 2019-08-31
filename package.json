@@ -1,8 +1,8 @@
 {
-    "name": "mantaray-sdl-extension",
-    "displayName": "MantaRay SDL Extension",
-    "description": "Syntax highlighting support for MantaRay SDL.",
-    "version": "0.0.1",
+    "name": "piranha-extension",
+    "displayName": "Piranha Extension",
+    "description": "Syntax highlighting support for Piranha.",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.34.0"
     },
@@ -11,15 +11,15 @@
     ],
     "contributes": {
         "languages": [{
-            "id": "mantascene",
-            "aliases": ["MantaRay SDL", "mantascene"],
-            "extensions": [".mr"],
+            "id": "piranha",
+            "aliases": ["Piranha"],
+            "extensions": [".mr", ".pr"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
             "language": "mantascene",
             "scopeName": "source.mr",
-            "path": "./syntaxes/mantascene.tmLanguage.json"
+            "path": "./syntaxes/piranha.tmLanguage.json"
         }]
     }
 }
