@@ -18,6 +18,6 @@ Open the ZIP file and unpack it. Right click on zip > Extract All, Click extract
 Paste the folder to the vscode folder (this)  
  ![image](https://user-images.githubusercontent.com/87225187/183988961-02448b3d-51c7-487b-8a4b-5c2d4de372ae.png)
 * Step 6 :
-Reload VS Code by pressing Ctrl+Shift+R, typing reload and hitting enter.
+Reload VS Code by pressing Ctrl+Shift+R, typing reload window and hitting enter.
 * Step 7:
 Enjoy.
