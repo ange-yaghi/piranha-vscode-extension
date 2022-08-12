@@ -26,40 +26,58 @@
 			"begin": "(@[a-zA-Z_][a-zA-Z_0-9]*\\s*):",
 			"end": "\n",
 			"beginCaptures": {
-				"1":{"name":"entity.name.function.decorator"}
+				"1": {
+					"name": "entity.name.function.decorator"
+				}
 			},
 			"patterns": [
-				{ "include": "#strings" }
+				{
+					"include": "#strings"
+				}
 			]
 		},
 		"node_instance": {
 			"patterns": [
-			{
-				"name": "entity.meta",
-				"begin": "([a-zA-Z_][a-zA-Z_0-9]*)\\s*\\(",
-				"end": "\\)",
-				"beginCaptures": {
-					"1": {"name": "entity.name.class"},
-					"2": {"name": "entity.name"}
-				},
-				"patterns": [
-						{ "include": "#attribute_specification" }
+				{
+					"name": "entity.meta",
+					"begin": "([a-zA-Z_][a-zA-Z_0-9]*)\\s*\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.class"
+						},
+						"2": {
+							"name": "entity.name"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#attribute_specification"
+						}
 					]
-			},
-			{
-				"name": "entity.meta",
-				"begin": "([a-zA-Z_][a-zA-Z_0-9]*)\\s+([a-zA-Z_][a-zA-Z_0-9]*)\\s*\\(",
-				"end": "\\)",
-				"beginCaptures": {
-					"1": {"name": "entity.name.class"},
-					"2": {"name": "entity.name"}
 				},
-				"patterns": [
-						{ "include": "#attribute_specification" }
+				{
+					"name": "entity.meta",
+					"begin": "([a-zA-Z_][a-zA-Z_0-9]*)\\s+([a-zA-Z_][a-zA-Z_0-9]*)\\s*\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.class"
+						},
+						"2": {
+							"name": "entity.name"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#attribute_specification"
+						}
 					]
-			},
-			{ "include": "#global_keywords" }
-		]
+				},
+				{
+					"include": "#global_keywords"
+				}
+			]
 		},
 		"attribute_specification": {
 			"patterns": [
@@ -67,40 +85,58 @@
 					"name": "meta",
 					"match": "([a-zA-Z_][a-zA-Z_0-9]*)\\s*:",
 					"captures": {
-						"1": { "name": "entity.other.attribute-name"}
+						"1": {
+							"name": "entity.other.attribute-name"
+						}
 					}
 				},
 				{
 					"name": "invalid.illegal",
 					"match": "\\b(node|output|alias|input|public|private|as)\\b"
 				},
-				{ "include": "#value" }
+				{
+					"include": "#value"
+				}
 			]
 		},
 		"value": {
 			"patterns": [
-				{ 
+				{
 					"name": "meta",
 					"match": "\\.\\s*([a-zA-Z_][a-zA-Z_0-9]*)",
 					"captures": {
-						"1": { "name": "entity.other.attribute-name" }
+						"1": {
+							"name": "entity.other.attribute-name"
+						}
 					},
 					"patterns": [
-						{ "include": "#value" }
+						{
+							"include": "#value"
+						}
 					]
 				},
 				{
 					"name": "meta",
 					"begin": "\\(",
 					"end": "\\)",
-					"patterns":[
-						{ "include": "#value" }
+					"patterns": [
+						{
+							"include": "#value"
+						}
 					]
 				},
-				{ "include": "#numbers" },
-				{ "include": "#strings" },
-				{ "include": "#node_instance"},
-				{ "include": "#comments"}
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#node_instance"
+				},
+				{
+					"include": "#comments"
+				}
 			]
 		},
 		"instance_name": {
@@ -108,26 +144,27 @@
 		},
 		"numbers": {
 			"patterns": [
-			{
-				"name": "constant.numeric",
-				"match": "\\b\\d+\\.\\d+\\b"
-			},
-			{
-				"name": "constant.numeric",
-				"match": "\\b(?<!\\.)\\d+\\b"
-			},
-			{
-				"name": "constant.numeric",
-				"match": "\\b0x[0-9a-fA-F]+\\b"
-			}]
+				{
+					"name": "constant.numeric",
+					"match": "\\b\\d+\\.\\d+\\b"
+				},
+				{
+					"name": "constant.numeric",
+					"match": "\\b(?<!\\.)\\d+\\b"
+				},
+				{
+					"name": "constant.numeric",
+					"match": "\\b0x[0-9a-fA-F]+\\b"
+				}
+			]
 		},
 		"strings": {
-			"name": "string.quoted.double.mantascene",
+			"name": "string.quoted.double.piranha",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.mantascene",
+					"name": "constant.character.escape.piranha",
 					"match": "\\\\."
 				}
 			]
@@ -139,15 +176,29 @@
 					"begin": "(node)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\{",
 					"end": "\\}",
 					"beginCaptures": {
-						"1": { "name": "storage.type" },
-						"2": { "name": "entity.name.class" },
-						"3": { "name": "storage.modifier" }
+						"1": {
+							"name": "storage.type"
+						},
+						"2": {
+							"name": "entity.name.class"
+						},
+						"3": {
+							"name": "storage.modifier"
+						}
 					},
 					"patterns": [
-						{ "include": "#attributes" },
-						{ "include": "#node_instance" },
-						{ "include": "#comments" },
-						{ "include": "#decorators" }
+						{
+							"include": "#attributes"
+						},
+						{
+							"include": "#node_instance"
+						},
+						{
+							"include": "#comments"
+						},
+						{
+							"include": "#decorators"
+						}
 					]
 				},
 				{
@@ -155,17 +206,31 @@
 					"begin": "(node)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\=>\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*\\{",
 					"end": "\\}",
 					"beginCaptures": {
-						"1": { "name": "storage.type" },
-						"2": { "name": "entity.name.class" },
-						"3": { "name": "entity.name.tag" }
+						"1": {
+							"name": "storage.type"
+						},
+						"2": {
+							"name": "entity.name.class"
+						},
+						"3": {
+							"name": "entity.name.tag"
+						}
 					},
 					"patterns": [
-						{ "include": "#attributes" },
-						{ "include": "#node_instance" },
-						{ "include": "#comments" },
-						{ "include": "#decorators" }
+						{
+							"include": "#attributes"
+						},
+						{
+							"include": "#node_instance"
+						},
+						{
+							"include": "#comments"
+						},
+						{
+							"include": "#decorators"
+						}
 					]
-				}				
+				}
 			]
 		},
 		"node_name": {
@@ -181,7 +246,13 @@
 				{
 					"match": "\\[(.*?)\\]",
 					"captures": {
-						"1": { "patterns": [{"include": "#node_name"}] }
+						"1": {
+							"patterns": [
+								{
+									"include": "#node_name"
+								}
+							]
+						}
 					}
 				}
 			]
@@ -191,9 +262,13 @@
 				{
 					"name": "meta",
 					"begin": "(input|output|modify|toggle)(\\s+[a-zA-Z_][a-zA-Z_0-9]*)\\s*\\[",
-					"beginCaptures":{
-						"1": {"name":"storage.modifier"},
-						"2": {"name":"entity.other.attribute-name"}
+					"beginCaptures": {
+						"1": {
+							"name": "storage.modifier"
+						},
+						"2": {
+							"name": "entity.other.attribute-name"
+						}
 					},
 					"end": "\\]",
 					"patterns": [
@@ -201,8 +276,12 @@
 							"match": "(.*?)\\s*::\\s*([a-zA-Z_][a-zA-Z_0-9]*)",
 							"name": "entity.meta",
 							"captures": {
-								"1": {"name": "entity.meta"},
-								"2": {"name": "entity.name.class"}
+								"1": {
+									"name": "entity.meta"
+								},
+								"2": {
+									"name": "entity.name.class"
+								}
 							}
 						},
 						{
@@ -214,9 +293,13 @@
 				{
 					"name": "meta",
 					"match": "(input|output|modify|toggle)(\\s+[a-zA-Z_][a-zA-Z_0-9]*)",
-					"captures":{
-						"1": {"name":"storage.modifier"},
-						"2": {"name":"entity.other.attribute-name"}
+					"captures": {
+						"1": {
+							"name": "storage.modifier"
+						},
+						"2": {
+							"name": "entity.other.attribute-name"
+						}
 					}
 				},
 				{
@@ -233,42 +316,46 @@
 			]
 		},
 		"global_keywords": {
-			"patterns": [{
-				"name": "keyword.control.mantascene",
-				"match": "\\b(as)\\b"
-			},
-			{
-				"name": "storage.modifier",
-				"match": "\\b(public|private|module|inline|auto)\\b"
-			},
-			{
-				"name": "invalid.illegal",
-				"match": "\\b(alias|output|input|modify|toggle)\\b"
-			},
-			{
-				"name": "storage.type",
-				"match": "\\b(node)\\b"
-			},
-			{
-				"name": "keyword.control.import",
-				"match": "\\bimport\\b"
-			},
-			{
-				"name": "constant.language",
-				"match": "\\b(true|false)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.piranha",
+					"match": "\\b(as)\\b"
+				},
+				{
+					"name": "storage.modifier",
+					"match": "\\b(public|private|module|inline|auto)\\b"
+				},
+				{
+					"name": "invalid.illegal",
+					"match": "\\b(alias|output|input|modify|toggle)\\b"
+				},
+				{
+					"name": "storage.type",
+					"match": "\\b(node)\\b"
+				},
+				{
+					"name": "keyword.control.import",
+					"match": "\\bimport\\b"
+				},
+				{
+					"name": "constant.language",
+					"match": "\\b(true|false)\\b"
+				}
+			]
 		},
-		"comments": {   
-			"patterns": [{
-				"name": "comment.line.double-slash",
-				"begin": "//",
-				"end": "\n"
-			},
-			{
-				"name": "comment.block",
-				"begin": "/\\*",
-				"end": "\\*/"
-			}]
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash",
+					"begin": "//",
+					"end": "\n"
+				},
+				{
+					"name": "comment.block",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
 		}
 	},
 	"scopeName": "source.mr"
